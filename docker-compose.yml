@@ -1,0 +1,22 @@
+# docker compose up -d --build     (put your values in .env first: cp .env.example .env)
+services:
+  toytaklif:
+    build: .
+    env_file: .env
+    environment:
+      DB_PATH: /data/toytaklif.db
+    ports:
+      - "8080:8080"
+    volumes:
+      - toytaklif-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+volumes:
+  toytaklif-data:
