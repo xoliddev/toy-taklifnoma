@@ -1,0 +1,19 @@
+{
+  "families": ["Karimov", "Nazarov", "Rahimov", "Toshmatov", "Yusupov", "Aliyev", "Saidov", "Ergashev", "Qodirov",
+    "Abdullayev", "Mirzayev", "Xolmatov", "Sobirov", "Umarov", "Jo'rayev", "Hasanov", "Ismoilov", "Tursunov", "Rasulov",
+    "Normatov", "Sultonov", "Valiyev", "Ahmedov", "Bakirov", "Davronov", "Fayzullayev", "G'aniyev", "Hamroyev",
+    "Islomov", "Jalilov", "Komilov", "Latipov", "Mahmudov", "Nurmatov", "Obidov", "Po'latov", "Qosimov", "Rustamov",
+    "Shokirov", "Tojiboyev", "Usmonov", "Xudoyberdiyev", "Yo'ldoshev", "Zokirov", "Boboyev", "Eshonqulov",
+    "Murodov", "Sharipov", "To'xtayev", "Ochilov"],
+  "men": ["Rustam", "Jasur", "Bekzod", "Dilshod", "Otabek", "Sherzod", "Farrux", "Akmal", "Sanjar", "Ulug'bek",
+    "Javlon", "Sardorbek", "Nodir", "Azizbek", "Shoxrux", "Temur", "Abbos", "Islom", "Mansur", "Doniyor"],
+  "women": ["Malika", "Dilnoza", "Nigora", "Shahnoza", "Gulnora", "Sevara", "Kamola", "Mohira", "Zarina", "Nilufar",
+    "Feruza", "Laylo", "Munisa", "Durdona", "Sabina", "Gulchehra", "Iroda", "Nodira", "Ra'no", "Yulduz"],
+  "groups": ["Qarindoshlar", "Do'stlar", "Hamkasblar", "Qo'shnilar", "Kursdoshlar"],
+  "wishes": [
+    "Baxtingiz bardavom bo'lsin! Bir-biringizni doim asrang, oilangizga tinchlik va to'kinlik tilaymiz.",
+    "Aziz kuyov va kelin, sizlarni chin qalbimizdan tabriklaymiz. Umringiz uzoq, uyingiz nurga to'la bo'lsin!",
+    "Bugungi baxtli kun umr bo'yi davom etsin. Farzandlaringiz solih, rizqingiz keng bo'lsin.",
+    "Sardor va Madina, sizlarni ko'rib quvonamiz! Muhabbatingiz yillar o'tgani sari mustahkamlansin."
+  ]
+}
