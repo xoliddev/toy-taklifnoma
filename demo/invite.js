@@ -10,7 +10,7 @@ const backend = new DemoBackend({ names: shared.names });
 const m = /^#t=([A-Za-z0-9_-]{22})$/.exec(window.location.hash);
 const token = m ? m[1] : backend.invite(1).token;
 const strip = h('div', { class: 'demo-strip' }, h('span', {}, 'Demo · ismlar va to\'yxona o\'ylab topilgan · hammasi brauzeringizda'),
-  h('a', { href: './' }, '← Demo sahifasi'));
+  h('a', { href: '../' }, '← Demo sahifasi'));
 document.body.prepend(strip);
 const app = mountInvite(document.getElementById('invite'), { api: publicFor(backend, token), catalogs: shared.catalogs });
 await app.refresh(true);

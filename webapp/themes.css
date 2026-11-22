@@ -40,7 +40,7 @@
   padding: 24px; background: radial-gradient(ellipse at 50% 30%, #1b5a73 0%, #0d3141 55%, #081f2a 100%); transition: opacity 0.6s, transform 0.6s;
 }
 .inv-page .env-overlay { position: fixed; }
-.pane:has(.env-overlay), body:has(.env-overlay) { overflow: hidden !important; }
+.pane:has(.env-overlay), .inv-page:has(.env-overlay) { overflow: hidden !important; }
 .env { position: relative; width: min(84vw, 330px); aspect-ratio: 4 / 3; perspective: 1100px; cursor: pointer; }
 .env-back, .env-front, .env-flap { position: absolute; inset: 0; border-radius: 8px; }
 .env-back { background: #e9dcc0; box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.7); }
