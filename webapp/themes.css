@@ -1,0 +1,82 @@
+/* Three looks a host can pick, plus the envelope intro (shared by all three). */
+.theme-milliy {
+  --bg: radial-gradient(ellipse at 50% 0%, #17506a 0%, #0f3a4d 45%, #0b2734 100%); --ornament: rgba(222, 182, 96, 0.2);
+  --paper: #fbf5e6; --ink: #1f2b2f; --ink2: #34454a; --muted: #6a7672; --names: #0f4c4a; --accent: #b4852c;
+  --accent-soft: rgba(180, 133, 44, 0.13); --chip: rgba(15, 76, 74, 0.055); --field: #fffdf6; --btn: #0f4c4a; --btn-ink: #fbf5e6;
+  --card-line: rgba(180, 133, 44, 0.42); --card-line2: rgba(180, 133, 44, 0.28); --radius: 26px;
+  --card-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.7), 0 0 0 6px rgba(251, 245, 230, 0.05);
+  --tool-bg: rgba(11, 39, 52, 0.55); --tool-ink: #f4e6c2; --tool-line: rgba(222, 182, 96, 0.45);
+}
+.theme-oltin {
+  --bg: linear-gradient(180deg, #f8f3ea 0%, #f1e8d8 100%); --ornament: rgba(180, 138, 58, 0.22);
+  --paper: #fffdf9; --ink: #2b251b; --ink2: #4a4132; --muted: #8a7f6c; --names: #8c6420; --accent: #b48a3a;
+  --accent-soft: rgba(180, 138, 58, 0.12); --chip: rgba(180, 138, 58, 0.07); --field: #fff; --btn: #2b251b; --btn-ink: #f8eed8;
+  --card-line: rgba(180, 138, 58, 0.45); --card-line2: rgba(180, 138, 58, 0.2); --radius: 4px;
+  --card-shadow: 0 30px 70px -40px rgba(110, 82, 30, 0.45);
+  --tool-bg: rgba(255, 253, 249, 0.8); --tool-ink: #6b4d17; --tool-line: rgba(180, 138, 58, 0.5);
+}
+.theme-oltin .names span:not(.amp) {
+  background: linear-gradient(100deg, #8c6420 0%, #d4ad5c 45%, #8c6420 100%); -webkit-background-clip: text; background-clip: text;
+  color: transparent; font-style: normal; letter-spacing: 0.02em;
+}
+.theme-bahor {
+  --bg: linear-gradient(180deg, #fbeff0 0%, #f4e4e6 60%, #eef1e6 100%); --ornament: rgba(192, 100, 111, 0.3);
+  --paper: #fffaf7; --ink: #3b2a2e; --ink2: #5a4549; --muted: #8b7579; --names: #a64f5b; --accent: #b45c69;
+  --accent-soft: rgba(192, 100, 111, 0.12); --chip: rgba(111, 143, 106, 0.09); --field: #fff; --btn: #a64f5b; --btn-ink: #fff7f6;
+  --card-line: rgba(111, 143, 106, 0.4); --card-line2: rgba(192, 100, 111, 0.18); --radius: 30px;
+  --card-shadow: 0 34px 70px -40px rgba(120, 60, 70, 0.45);
+  --tool-bg: rgba(255, 250, 247, 0.8); --tool-ink: #8e4450; --tool-line: rgba(192, 100, 111, 0.45);
+}
+.theme-bahor .inv-backdrop .petal, .theme-bahor .inv-corner .petal, .theme-bahor .inv-divider .petal { fill: #f0b9c0; opacity: 0.85; }
+.bloom.t1 .petal { fill: #f6d3a8 !important; }
+.bloom.t2 .petal { fill: #e9c5e0 !important; }
+.bloom .pistil { fill: #e0a04a; }
+.leafy { fill: #8fae88; opacity: 0.75; }
+.theme-bahor .inv-backdrop { opacity: 0.75; }
+
+/* ── envelope intro ── */
+.env-overlay {
+  position: absolute; inset: 0; z-index: 30; min-height: 100%; display: grid; place-content: center; justify-items: center; gap: 26px;
+  padding: 24px; background: radial-gradient(ellipse at 50% 30%, #1b5a73 0%, #0d3141 55%, #081f2a 100%); transition: opacity 0.6s, transform 0.6s;
+}
+.inv-page .env-overlay { position: fixed; }
+.pane:has(.env-overlay), body:has(.env-overlay) { overflow: hidden !important; }
+.env { position: relative; width: min(84vw, 330px); aspect-ratio: 4 / 3; perspective: 1100px; cursor: pointer; }
+.env-back, .env-front, .env-flap { position: absolute; inset: 0; border-radius: 8px; }
+.env-back { background: #e9dcc0; box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.7); }
+.env-letter {
+  position: absolute; left: 7%; right: 7%; top: 8%; bottom: 6%; z-index: 1; display: grid; place-items: start center; padding-top: 14%;
+  border-radius: 6px; background: #fbf5e6; box-shadow: inset 0 0 0 1px rgba(180, 133, 44, 0.45), inset 0 0 0 6px #fbf5e6,
+    inset 0 0 0 7px rgba(180, 133, 44, 0.3); transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.45s;
+}
+.env-letter-names { font: italic 500 24px/1 Georgia, serif; color: #0f4c4a; }
+.env-front {
+  z-index: 2; display: grid; align-content: end; justify-items: center; gap: 4px; padding-bottom: 9%;
+  background: linear-gradient(170deg, #f3e8cf, #e6d6b3); clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%);
+}
+.env-front small { font: 600 10.5px/1 -apple-system, "Segoe UI", sans-serif; letter-spacing: 0.28em; text-transform: uppercase; color: #9b7a3c; }
+.env-to { font: italic 600 19px/1.2 Georgia, serif; color: #33352f; padding: 0 12px; text-align: center; }
+.env-flap {
+  z-index: 3; background: linear-gradient(180deg, #efe1c2, #dcc79d); clip-path: polygon(0 0, 100% 0, 50% 60%); transform-origin: 50% 0;
+  transition: transform 0.7s cubic-bezier(0.5, 0, 0.3, 1) 0.15s, z-index 0s 0.5s; filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+}
+.env-seal-wrap { position: absolute; z-index: 4; left: 50%; top: 60%; width: 66px; height: 66px; transform: translate(-50%, -50%); transition: transform 0.35s, opacity 0.35s; }
+.env-seal .wax { fill: #9e2b2b; }
+.env-seal .ring { fill: none; stroke: rgba(255, 220, 200, 0.45); stroke-width: 2; }
+.env-seal .mono { font: italic 700 25px Georgia, serif; fill: #f6d9c4; }
+.env-open {
+  min-height: 50px; padding: 0 28px; border-radius: 999px; border: 1px solid rgba(222, 182, 96, 0.7); cursor: pointer;
+  background: linear-gradient(180deg, #e6c47a, #c49a45); color: #1d2a2a; font: 700 15px/1 -apple-system, "Segoe UI", sans-serif;
+  box-shadow: 0 14px 30px -16px #e6c47a; animation: env-pulse 2.4s ease-in-out infinite;
+}
+@keyframes env-pulse { 50% { box-shadow: 0 14px 40px -10px #e6c47a; } }
+.env-overlay.opening .env-seal-wrap { transform: translate(-50%, -50%) scale(0.4) rotate(-20deg); opacity: 0; }
+.env-overlay.opening .env-flap { transform: rotateX(180deg); z-index: 0; }
+.env-overlay.opening .env-letter { transform: translateY(-46%); z-index: 2; }
+.env-overlay.opening .env-open { opacity: 0; animation: none; transition: opacity 0.3s; }
+.env-overlay.leaving { opacity: 0; transform: scale(1.06); pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .env-overlay, .env-flap, .env-letter, .env-seal-wrap, .inv-btn, .rsvp-choice { transition: none !important; }
+  .env-open, .music.on .eq i { animation: none !important; }
+}
