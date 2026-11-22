@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 — 2026-11-22
+
+- The invitation no longer ends with a technical note about how it was drawn: guests see only the hosts' signature.
+- The dashboard tile for "Hali bilmayman" answers is called "Noaniq" (ru: "Не решили") instead of "Bilmaydi".
+
 ## 1.0.0 — 2026-11-22
 
 First release (day 4 of the 30-day portfolio challenge).

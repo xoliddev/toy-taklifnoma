@@ -104,7 +104,7 @@ export function mountInvite(root, { api, catalogs, lang: start = 'uz', tg = null
       view.news ? h('section', { class: 'inv-sec news', 'data-testid': 'news' }, h('h3', {}, T('inv.news')), h('p', {}, view.news.text)) : null,
       divider(w.theme), ...details(w), divider(w.theme),
       rsvpSection(ctx), passSection(ctx), wishesSection(ctx),
-      h('footer', { class: 'inv-foot' }, h('p', { class: 'sig' }, T('inv.signature')), h('small', {}, T('inv.made'))));
+      h('footer', { class: 'inv-foot' }, h('p', { class: 'sig' }, T('inv.signature'))));
     const page = h('div', { class: `inv theme-${w.theme}`, 'data-theme': w.theme, 'data-testid': 'invitation' }, backdrop(w.theme), tools(w), card);
     root.replaceChildren(page);
     if (envelope && !env?.opened) env = mountEnvelope(root, { T, name: inv.name, groom: w.groom, bride: w.bride, onOpen: () => root.classList.add('opened') });
