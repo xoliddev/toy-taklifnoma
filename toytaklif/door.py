@@ -43,8 +43,6 @@ class DoorMixin:
         if want is not None and (not isinstance(want, int) or isinstance(want, bool) or not 1 <= want <= 10):
             raise Refused("people")
         now = self.now()
-        if not w["starts_at"] - OPEN_BEFORE <= now <= w["starts_at"] + OPEN_AFTER:
-            return {"result": "not_today", "starts_at": w["starts_at"]}
         fields = qrtoken.verify(self.secret, scanned)
         code = None if fields else qrtoken.norm_code(scanned)
         if fields is None and code is None:
@@ -61,6 +59,8 @@ class DoorMixin:
                     fields["wedding_id"] != wid or fields["version"] != inv["version"]
                     or fields["people"] != inv["people"]))):
                 return {"result": "bad"}
+            if not w["starts_at"] - OPEN_BEFORE <= now <= w["starts_at"] + OPEN_AFTER:  # genuine, but not today
+                return {"result": "not_today", "starts_at": w["starts_at"]}
             left = inv["people"] - inv["checked_in"]
             base = {"name": inv["name"], "total": inv["people"], "invite_id": inv["id"]}
             if left <= 0:

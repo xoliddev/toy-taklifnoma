@@ -103,13 +103,13 @@ export function installHost(Backend, Refused, guard) {
     const w = this.requireChecker(uid, wid);
     if (want !== null && want !== undefined && !(Number.isInteger(want) && want >= 1 && want <= 10)) throw new Refused('people');
     const now = this.nowMs();
-    if (now < w.starts_at - OPEN_BEFORE || now > w.starts_at + OPEN_AFTER) return { result: 'not_today', starts_at: w.starts_at };
     const fields = verify(this.secret, scanned);
     const code = fields ? null : normCode(scanned);
     if (!fields && !code) return { result: 'bad' };
     const inv = fields ? this.invites.find((x) => x.id === fields.invite_id) : this.invites.find((x) => x.entry_code === code);
     if (!inv || inv.status !== 'yes' || inv.people < 1
       || (fields && (fields.wedding_id !== 1 || fields.version !== inv.version || fields.people !== inv.people))) return { result: 'bad' };
+    if (now < w.starts_at - OPEN_BEFORE || now > w.starts_at + OPEN_AFTER) return { result: 'not_today', starts_at: w.starts_at };
     const left = inv.people - inv.checked_in;
     const base = { name: inv.name, total: inv.people };
     if (left <= 0) return { result: 'used', at: inv.last_checkin_at, ...base, arrived: inv.checked_in };

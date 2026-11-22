@@ -12,6 +12,7 @@ export function mountDash(root, { api, catalogs, lang: start = 'uz', wid, tg = n
   let data = null;
   let shownPeople = null;
   let timer = null;
+  let draft = ''; // the broadcast being typed survives re-renders
   const T = (key, params) => text(lang, key, params);
   const tx = (l, key, params) => text(l, key, params);
 
@@ -54,7 +55,9 @@ export function mountDash(root, { api, catalogs, lang: start = 'uz', wid, tg = n
   }
 
   function toolsCard(w) {
-    const box = h('textarea', { class: 'tt-input', rows: 2, maxlength: 500, placeholder: T('dash.broadcast_ph'), 'data-testid': 'broadcast-text' });
+    const box = h('textarea', { class: 'tt-input', rows: 2, maxlength: 500, placeholder: T('dash.broadcast_ph'), 'data-testid': 'broadcast-text',
+      oninput: () => { draft = box.value; } });
+    box.value = draft;
     const themes = ['milliy', 'oltin', 'bahor'].map((k) => h('button', { type: 'button', class: `swatch sw-${k}${w.theme === k ? ' on' : ''}`,
       'aria-pressed': String(w.theme === k), 'data-testid': `theme-${k}`, onclick: () => act(() => api.settings(wid, { theme: k }), T('dash.theme_saved')) },
     h('i'), T(`theme.${k}`)));
@@ -63,7 +66,9 @@ export function mountDash(root, { api, catalogs, lang: start = 'uz', wid, tg = n
     return [
       h('section', { class: 'dash-card' }, h('h3', {}, T('dash.broadcast')), box,
         h('button', { class: 'tt-btn', type: 'button', 'data-testid': 'broadcast-send', onclick: async () => {
-          if (await act(() => api.broadcast(wid, box.value), (r) => T('dash.broadcast_done', { n: r.sent }))) box.value = '';
+          const sent = draft;
+          draft = '';
+          if (!(await act(() => api.broadcast(wid, sent), (r) => T('dash.broadcast_done', { n: r.sent })))) draft = sent;
         } }, `📣 ${T('dash.broadcast_send')}`)),
       h('section', { class: 'dash-card' }, h('h3', {}, T('dash.look')), h('div', { class: 'swatches' }, themes), h('div', { class: 'chips' }, music)),
       h('button', { class: 'tt-btn ghost wide', type: 'button', 'data-testid': 'export', onclick: () => act(() => api.exportCsv(wid),

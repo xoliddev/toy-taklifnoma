@@ -51,16 +51,16 @@
 }
 .env-letter-names { font: italic 500 24px/1 Georgia, serif; color: #0f4c4a; }
 .env-front {
-  z-index: 2; display: grid; align-content: end; justify-items: center; gap: 4px; padding-bottom: 9%;
-  background: linear-gradient(170deg, #f3e8cf, #e6d6b3); clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%);
+  z-index: 2; display: grid; align-content: end; justify-items: center; gap: 4px; padding-bottom: 7%;
+  background: linear-gradient(170deg, #f3e8cf, #e6d6b3); clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
 }
 .env-front small { font: 600 10.5px/1 -apple-system, "Segoe UI", sans-serif; letter-spacing: 0.28em; text-transform: uppercase; color: #9b7a3c; }
 .env-to { font: italic 600 19px/1.2 Georgia, serif; color: #33352f; padding: 0 12px; text-align: center; }
 .env-flap {
-  z-index: 3; background: linear-gradient(180deg, #efe1c2, #dcc79d); clip-path: polygon(0 0, 100% 0, 50% 60%); transform-origin: 50% 0;
+  z-index: 3; background: linear-gradient(180deg, #efe1c2, #dcc79d); clip-path: polygon(0 0, 100% 0, 50% 52%); transform-origin: 50% 0;
   transition: transform 0.7s cubic-bezier(0.5, 0, 0.3, 1) 0.15s, z-index 0s 0.5s; filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
 }
-.env-seal-wrap { position: absolute; z-index: 4; left: 50%; top: 60%; width: 66px; height: 66px; transform: translate(-50%, -50%); transition: transform 0.35s, opacity 0.35s; }
+.env-seal-wrap { position: absolute; z-index: 4; left: 50%; top: 50%; width: 60px; height: 60px; transform: translate(-50%, -50%); transition: transform 0.35s, opacity 0.35s; }
 .env-seal .wax { fill: #9e2b2b; }
 .env-seal .ring { fill: none; stroke: rgba(255, 220, 200, 0.45); stroke-width: 2; }
 .env-seal .mono { font: italic 700 25px Georgia, serif; fill: #f6d9c4; }
