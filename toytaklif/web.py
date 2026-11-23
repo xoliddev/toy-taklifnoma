@@ -127,6 +127,11 @@ def make_app(service: Service, bot_token: str, notifier=None, max_age: int = 360
     add_routes(r, service, ME, notify)
     r.add_get("/healthz", health)
     r.add_get("/", index)
+    async def webapp_index(_: web.Request) -> web.FileResponse:
+        """The Mini App's address is /webapp/; add_static alone answers 403 for a folder."""
+        return web.FileResponse(ROOT / "webapp" / "index.html")
+
+    r.add_get("/webapp/", webapp_index)
     r.add_static("/webapp/", ROOT / "webapp", append_version=False)
     r.add_static("/shared/", ROOT / "shared", append_version=False)
     return app

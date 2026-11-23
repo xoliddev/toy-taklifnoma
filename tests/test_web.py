@@ -130,5 +130,7 @@ async def test_static_and_health():
     async with api() as (c, *_):
         assert (await c.get("/healthz")).status == 200
         r = await c.get("/webapp/index.html")
+        root = await c.get("/webapp/")  # the address the bot opens
+        assert root.status == 200 and "<html" in (await root.text()).lower()
         assert r.status == 200 and r.headers["X-Content-Type-Options"] == "nosniff"
         assert (await c.get("/shared/locales/uz.json")).status == 200
